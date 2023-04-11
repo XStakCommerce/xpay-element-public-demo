@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "An implementation for XPay Fusion APIs and Embed",
   "main": "server.js",
+  "author": "Ali Raza",
   "scripts": {
     "start": "nodemon server.js"
   },
