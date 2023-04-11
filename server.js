@@ -25,7 +25,7 @@ app.post("/create-payment-intent", async (req, res) => {
     .digest("hex");
   try {
     const paymentIntent = await axios.post(
-      "https://xstak-pay-stg.xstak.com/public/v1/payment/intent",
+      "https://xstak-pay.xstak.com/public/v1/payment/intent",
       payload,
       {
         headers: {
