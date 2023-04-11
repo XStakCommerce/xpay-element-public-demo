@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PaymentElement, useXpay } from '@xstak/xpay-element-stage';
+import { PaymentElement, useXpay } from '@xstak/xpay-element';
 import { Button } from 'antd';
 
 import './index.css'
