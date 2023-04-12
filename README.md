@@ -6,7 +6,7 @@ Integrate embedded payments in your app by just writing a few lines of code.
 
 The repo comprises both APIs and Embed Element codebase.
 
-1. Instal
+1. Install
 
 ~~~
 npm install at root and inside react directory
