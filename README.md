@@ -9,23 +9,29 @@ The repo comprises both APIs and the embedded payments element codebase.
 1. Install
 
 ~~~
-npm install at root and inside react directory
+npm install
 ~~~
+in root and react directory
 
 2. Run the server
 
 ~~~
-npm start to run the server
+npm start
 ~~~
+to run the server
 
 3. JS Demo
 
+Simply navigate to this link
+
 ~~~
-Simply navigate to this link http://localhost:9000/4242/payment.html
+http://localhost:4242/payment.html
 ~~~
 
 4. React Demo
 
 ~~~
-npm run dev inside react directory to start with the React-based implementation.
+npm start
 ~~~
+
+inside react directory to start with the React-based implementation.
