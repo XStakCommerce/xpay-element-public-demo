@@ -1,12 +1,12 @@
-# XPay Fusion APIs and Embed Demo
+# XPay Fusion APIs and Embedded Payments Demo
 
 Integrate embedded payments in your app by just writing a few lines of code.
 
 ## Running the demo
 
-The repo comprises both APIs and Embed Element codebase.
+The repo comprises both APIs and the embedded payments element codebase.
 
-1. Instal
+1. Install
 
 ~~~
 npm install at root and inside react directory

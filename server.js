@@ -2,6 +2,7 @@ const express = require("express");
 const crypto = require("crypto");
 const axios = require("axios");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
@@ -14,25 +15,25 @@ app.post("/create-payment-intent", async (req, res) => {
     currency: "PKR",
     payment_method_types: "card",
     customer: {
-      email: "",
-      name: "",
-      phone: "",
+      email: "", //required
+      name: "", //required
+      phone: "", //required
     },
   };
   const signature = crypto
-    .createHmac("SHA256", "hmac_secret")
+    .createHmac("SHA256", process.env.HMAC_SECRET)
     .update(JSON.stringify(payload))
     .digest("hex");
   try {
     const paymentIntent = await axios.post(
-      "https://xstak-pay-stg.xstak.com/public/v1/payment/intent",
+      "https://xstak-pay.xstak.com/public/v1/payment/intent",
       payload,
       {
         headers: {
-          "x-api-key": "secret_key",
+          "x-api-key": process.env.SECRET_KEY,
           "Content-Type": "application/json",
           "x-signature": signature,
-          "x-account-id": "account_id",
+          "x-account-id": process.env.ACCOUNT_ID,
         },
       }
     );
