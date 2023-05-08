@@ -38,6 +38,7 @@ app.post("/create-payment-intent", async (req, res) => {
       }
     );
     res.json({
+      encryptionKey: paymentIntent.data.data.encryptionKey,
       clientSecret: paymentIntent.data.data.pi_client_secret,
     });
   } catch (e) {

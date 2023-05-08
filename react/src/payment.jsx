@@ -30,14 +30,15 @@ export const Payment = () => {
 
     const xpay = useXpay();
     const payNow = async() => {
+    let customer = { name: 'abc'};
         try {
             setLoading(true);
-            const { clientSecret } = await fetch("http://localhost:4242/create-payment-intent", {
+            const { clientSecret, encryptionKey } = await fetch("http://localhost:4242/create-payment-intent", {
               method: "post",
             })
               .then((res) => res.json())
               .then((res) => res);
-            const { message } = await xpay.createPaymentMethod("card", clientSecret);
+              const { message } = await xpay.confirmPayment("card", clientSecret, customer, encryptionKey);
             setLoading(false);
             alert(
               message === "SUCCESS"

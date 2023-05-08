@@ -28,10 +28,10 @@ const app = xpay.element("#form", options);
 
 const submit = async (e) => {
   e.preventDefault();
-
+  let customer = { name: 'abc'};
   try {
     setLoading(true);
-    const { clientSecret } = await fetch(
+    const { clientSecret, encryptionKey } = await fetch(
       "http://localhost:4242/create-payment-intent",
       {
         method: "post",
@@ -39,7 +39,7 @@ const submit = async (e) => {
     )
       .then((res) => res.json())
       .then((res) => res);
-    const { message } = await xpay.createPaymentMethod("card", clientSecret);
+    const { message } = await xpay.confirmPayment("card", clientSecret, customer, encryptionKey);
     setLoading(false);
     await showMessage(
       message === "SUCCESS" ? "You payment is successful" : message
