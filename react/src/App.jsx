@@ -1,4 +1,4 @@
-import { XPay } from '@xstak/xpay-element';
+import { XPay } from '@xstak/xpay-element-stage';
 import { Payment } from './payment';
 function App() {
   return (
