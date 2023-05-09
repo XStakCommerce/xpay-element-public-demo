@@ -21,7 +21,7 @@ npm start to run the server
 3. JS Demo
 
 ~~~
-Simply navigate to this link http://localhost:9000/4242/payment.html
+Simply navigate to this link http://localhost:4242/payment.html
 ~~~
 
 4. React Demo
