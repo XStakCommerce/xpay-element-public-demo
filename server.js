@@ -19,6 +19,13 @@ app.post("/create-payment-intent", async (req, res) => {
       name: "", //required
       phone: "", //required
     },
+    shipping: {
+      address1: "", //required
+      city: "", //required
+      country: "", //required
+      province: "", //required
+      zip: "", //required
+    },
   };
   const signature = crypto
     .createHmac("SHA256", process.env.HMAC_SECRET)
