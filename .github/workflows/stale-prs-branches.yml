@@ -28,5 +28,4 @@ jobs:
           days-before-delete: 39
           comment-updates: true
           tag-committer: true
-          start-date: 2023-06-05
-          branches-filter-regex: "^((?!master|stage|develop|develop-v2|develop-V2|.*ignore$))"
+          branches-filter-regex: "^((?!master|stage|develop|develop-V2|.*ignore$))"
