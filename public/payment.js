@@ -28,7 +28,7 @@ const app = xpay.element("#form", options);
 
 const submit = async (e) => {
   e.preventDefault();
-  let customer = { name: 'abc'};
+  let customer = { name: "guest user" };
   try {
     setLoading(true);
     const { clientSecret, encryptionKey } = await fetch(
@@ -39,16 +39,17 @@ const submit = async (e) => {
     )
       .then((res) => res.json())
       .then((res) => res);
-    const { message } = await xpay.confirmPayment("card", clientSecret, customer, encryptionKey);
-    setLoading(false);
-    await showMessage(
-      message === "SUCCESS" ? "You payment is successful" : message
+    const { message } = await xpay.confirmPayment(
+      "card",
+      clientSecret,
+      customer,
+      encryptionKey
     );
+    setLoading(false);
+    await showMessage(message);
   } catch (e) {
     setLoading(false);
-    showMessage(
-      e.message === "FAILURE" ? "Your payment has been declined!" : e.message
-    );
+    showMessage(e.message);
   }
 };
 
