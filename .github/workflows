@@ -1,0 +1,31 @@
+name: Mark and delete stale pull requests and branches
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
+      contents: write
+    steps:
+      - uses: actions/stale@v5
+        name: Stale PRs
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-stale: 30
+          days-before-close: 9
+          close-pr-message: "Closing stale PR"
+          stale-pr-message: "This PR is marked as stale. Update it to avoid closing."
+          exempt-pr-labels: ignore
+      - uses: crs-k/stale-branches/@v3.0.0
+        name: Stale branches
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-stale: 30
+          days-before-delete: 39
+          comment-updates: true
+          tag-committer: true
+          branches-filter-regex: "^((?!master|stage|develop|develop-V2|.*ignore$))"
