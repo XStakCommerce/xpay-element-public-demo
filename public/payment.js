@@ -39,7 +39,7 @@ const submit = async (e) => {
     )
       .then((res) => res.json())
       .then((res) => res);
-    const { message } = await xpay.confirmPayment(
+    const { error, message } = await xpay.confirmPayment(
       "card",
       clientSecret,
       customer,
