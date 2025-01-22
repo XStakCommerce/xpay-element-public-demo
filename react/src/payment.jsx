@@ -38,7 +38,7 @@ export const Payment = () => {
             })
               .then((res) => res.json())
               .then((res) => res);
-              const { message } = await xpay.confirmPayment("card", clientSecret, customer, encryptionKey);
+              const { error, message } = await xpay.confirmPayment("card", clientSecret, customer, encryptionKey);
             setLoading(false);
             alert(message);
           } catch (e) {
